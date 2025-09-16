@@ -1,0 +1,23 @@
+{
+  "name": "fluentui",
+  "version": "1.0.0",
+  "description": "This is a template to use Fluent UI",
+  "keywords": [
+    "fluentui"
+  ],
+  "homepage": "https://github.com/mariobot/FluentUI#readme",
+  "bugs": {
+    "url": "https://github.com/mariobot/FluentUI/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariobot/FluentUI.git"
+  },
+  "license": "ISC",
+  "author": "Mario Botero",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
