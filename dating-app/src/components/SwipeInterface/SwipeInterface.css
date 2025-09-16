@@ -1,0 +1,129 @@
+.swipe-interface {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 600px;
+  padding: 20px;
+  position: relative;
+}
+
+.cards-container {
+  position: relative;
+  width: 320px;
+  height: 480px;
+  margin-bottom: 20px;
+}
+
+.card-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.background-card {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.card-preview {
+  width: 100%;
+  height: 320px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-preview .image-placeholder {
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.no-users {
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  max-width: 300px;
+}
+
+.no-users h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 24px;
+}
+
+.no-users p {
+  margin: 0 0 25px 0;
+  color: #666;
+  line-height: 1.5;
+}
+
+.reload-btn {
+  background: linear-gradient(135deg, #ff6b6b, #ffa726);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.reload-btn:hover {
+  transform: translateY(-2px);
+}
+
+.recent-matches {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 10px 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.recent-matches h4 {
+  margin: 0;
+  color: #4caf50;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .swipe-interface {
+    padding: 10px;
+  }
+  
+  .cards-container {
+    width: 90vw;
+    max-width: 320px;
+  }
+  
+  .no-users {
+    max-width: 90vw;
+  }
+  
+  .recent-matches {
+    bottom: 10px;
+  }
+}
