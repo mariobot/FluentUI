@@ -1,0 +1,73 @@
+@{
+    ViewData["Title"] = "Person CRUD";
+}
+
+<h2>Person CRUD</h2>
+
+<div>
+    <form id="personForm">
+        <input type="hidden" id="personId" />
+        <label>Name:</label>
+        <input type="text" id="name" />
+        <label>Last Name:</label>
+        <input type="text" id="lastName" />
+        <label>Photo URL:</label>
+        <input type="text" id="photo" />
+        <button type="button" onclick="createPerson()">Create</button>
+        <button type="button" onclick="updatePerson()">Update</button>
+        <button type="button" onclick="deletePerson()">Delete</button>
+    </form>
+</div>
+
+<div>
+    <h3>Person Details</h3>
+    <pre id="personDetails"></pre>
+</div>
+
+<script>
+function createPerson() {
+    const person = {
+        name: document.getElementById('name').value,
+        lastName: document.getElementById('lastName').value,
+        photo: document.getElementById('photo').value
+    };
+    fetch('/api/person', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(person)
+    })
+    .then(res => res.json())
+    .then(data => showPerson(data));
+}
+
+function updatePerson() {
+    const id = document.getElementById('personId').value;
+    const person = {
+        name: document.getElementById('name').value,
+        lastName: document.getElementById('lastName').value,
+        photo: document.getElementById('photo').value
+    };
+    fetch(`/api/person/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(person)
+    })
+    .then(res => res.json())
+    .then(data => showPerson(data));
+}
+
+function deletePerson() {
+    const id = document.getElementById('personId').value;
+    fetch(`/api/person/${id}`, {
+        method: 'DELETE'
+    })
+    .then(() => {
+        document.getElementById('personDetails').textContent = 'Deleted';
+    });
+}
+
+function showPerson(person) {
+    document.getElementById('personId').value = person.id || '';
+    document.getElementById('personDetails').textContent = JSON.stringify(person, null, 2);
+}
+</script>
